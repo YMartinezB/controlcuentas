@@ -1,0 +1,59 @@
+.formulario {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-image: url(../Fotos.jpg); /* Ruta relativa al archivo CSS */
+    background-size: cover; /* La imagen cubre todo el fondo */
+    background-position: center; /* La imagen está centrada */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* La imagen de fondo se mantiene fija al hacer scroll */
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia para el formulario */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia para la tabla */
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
