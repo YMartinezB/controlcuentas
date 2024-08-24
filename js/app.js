@@ -54,27 +54,27 @@ document.addEventListener('DOMContentLoaded', function () {
         let textoDias = diferenciaDias >= 0 ? `Quedan ${diferenciaDias} días` : `Vencido por ${Math.abs(diferenciaDias)} días`;
 
         fila.insertCell(5).textContent = textoDias; // Mostrar la diferencia de días
-        
-        // Añadir botón de eliminar
-         const btnEliminar = document.createElement('button');
-         btnEliminar.textContent = 'Eliminar';
-         btnEliminar.addEventListener('click', function () {
-             eliminarCuenta(cuenta, fila);
-         });
-         fila.insertCell(6).appendChild(btnEliminar);
 
-         // Eliminar una cuenta de la tabla y de localStorage
-        function eliminarCuenta(cuenta, fila) {
+        // Añadir botón de eliminar
+        const btnEliminar = document.createElement('button');
+        btnEliminar.textContent = 'Eliminar';
+        btnEliminar.addEventListener('click', function () {
+            eliminarCuenta(cuenta, fila);
+        });
+        fila.insertCell(6).appendChild(btnEliminar);
+    }
+
+    // Eliminar una cuenta de la tabla y de localStorage
+    function eliminarCuenta(cuenta, fila) {
         fila.remove(); // Elimina la fila de la tabla
         
         let cuentas = JSON.parse(localStorage.getItem('cuentas')) || [];
         cuentas = cuentas.filter(c => c.email !== cuenta.email); // Filtrar la cuenta que se va a eliminar
         localStorage.setItem('cuentas', JSON.stringify(cuentas)); // Actualizar localStorage
     }
-    }
 
     // Verificar si alguna cuenta está por finalizar y enviar alerta
-    /* function verificarAlertas() {
+    function verificarAlertas() {
         const hoy = new Date().toISOString().split('T')[0];
         let cuentas = JSON.parse(localStorage.getItem('cuentas')) || [];
         
@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert(`La suscripción de ${cuenta.nombre} (Correo: ${cuenta.email}) finaliza hoy.`);
                 
                 // Enviar correo de alerta
-                emailjs.send("service_59c3nek", "service_59c3nek", {
-                    to_email: "yuimart13@gmail.com", // El correo donde quieres recibir las alertas
+                emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                    to_email: "your_email@example.com", // El correo donde quieres recibir las alertas
                     from_name: "Gestión de Cuentas de Streaming",
                     message: `La suscripción de ${cuenta.nombre} con el correo ${cuenta.email} finaliza hoy.`
                 }).then((response) => {
@@ -94,5 +94,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
         });
-    } */
+    }
 });
